@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
+const { autoUpdater } = require('electron-updater');
 const path = require('path');
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -39,6 +40,10 @@ app.whenReady().then(() => {
   ipcMain.handle('dialog:openFile', handleFileOpen);
   
   createWindow();
+
+  // เพิ่มบรรทัดนี้เข้าไป!
+  // แอปจะเช็คอัปเดตอัตโนมัติเมื่อเปิด และเมื่อมีอัปเดตที่ดาวน์โหลดเสร็จแล้ว จะขึ้นแจ้งเตือนให้ผู้ใช้
+  autoUpdater.checkForUpdatesAndNotify();
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {

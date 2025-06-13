@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A sample Electron app with Next.js",
   "main": "main/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Framelily/electron-next-example.git"
+  },
   "scripts": {
     "dev": "concurrently \"npm:dev:next\" \"npm:dev:electron\"",
     "dev:next": "next dev",
@@ -27,6 +31,13 @@
   "build": {
     "appId": "com.example.electronnext",
     "productName": "My Electron-Next App",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Framelily",
+        "repo": "electron-next-example"
+      }
+    ],
     "files": [
       "main/**/*",
       "dist/renderer/**/*"
