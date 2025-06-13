@@ -12,7 +12,7 @@
     "dev:next": "next dev",
     "dev:electron": "wait-on http://localhost:3000 && electron .",
     "build": "npm run build:next && npm run build:electron",
-    "build:next": "next build && next export -o ./dist/renderer",
+    "build:next": "next build",
     "build:electron": "electron-builder"
   },
   "author": "",
