@@ -1,0 +1,39 @@
+{
+  "name": "electron-next-example",
+  "version": "1.0.0",
+  "description": "A sample Electron app with Next.js",
+  "main": "main/main.js",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:next\" \"npm:dev:electron\"",
+    "dev:next": "next dev",
+    "dev:electron": "wait-on http://localhost:3000 && electron .",
+    "build": "npm run build:next && npm run build:electron",
+    "build:next": "next build && next export -o ./dist/renderer",
+    "build:electron": "electron-builder"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^14.2.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^31.0.1",
+    "electron-builder": "^24.13.3",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.example.electronnext",
+    "productName": "My Electron-Next App",
+    "files": [
+      "main/**/*",
+      "dist/renderer/**/*"
+    ],
+    "directories": {
+      "output": "release"
+    }
+  },
+  "keywords": []
+}
